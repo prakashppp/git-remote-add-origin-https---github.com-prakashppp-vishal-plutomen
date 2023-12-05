@@ -10,9 +10,7 @@
     </div>
   </nav>
 
-        <input style="margin-left: 85%; margin-right: 10%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-
+  <app-serach></app-serach>
   <table class="table" style="text-align: center;">
     <thead>
       <tr>
@@ -55,31 +53,31 @@
         
         <div class="mb-3">
           <label class="form-label">Name</label>
-          <input type="text" class="form-control" formControlName="Name">
+          <input type="text" [class.is-invalid]="mform.get('Name')?.invalid && mform.get('Name')?.touched" class="form-control" formControlName="Name">
           <span [class.d-none]="mform.get('Name')?.valid || mform.get('Name')?.untouched">Enter Valid name</span>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Email</label>
-          <input type="text" class="form-control" formControlName="Email">
+          <input type="text" [class.is-invalid]="mform.get('Email')?.invalid && mform.get('Email')?.touched" class="form-control" formControlName="Email">
           <span [class.d-none]="mform.get('Email')?.valid || mform.get('Email')?.untouched">Enter Valid name</span>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Address</label>
-          <input type="text" class="form-control" formControlName="Address">
+          <input type="text" [class.is-invalid]="mform.get('Address')?.invalid && mform.get('Address')?.touched" class="form-control" formControlName="Address">
           <span [class.d-none]="mform.get('Address')?.valid || mform.get('Address')?.untouched">Enter Valid name</span>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Mobile</label>
-          <input type="text" class="form-control" formControlName="Mobile">
+          <input type="text" [class.is-invalid]="mform.get('Mobile')?.invalid && mform.get('Mobile')?.touched" class="form-control" formControlName="Mobile">
           <span [class.d-none]="mform.get('Mobile')?.valid || mform.get('Mobile')?.untouched">Enter Valid name</span>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Role</label>
-            <input type="text" class="form-control" formControlName="Role">
+            <input type="text" [class.is-invalid]="mform.get('Role')?.invalid && mform.get('Role')?.touched" class="form-control" formControlName="Role">
             <span [class.d-none]="mform.get('Role')?.valid || mform.get('Role')?.untouched">Enter Valid name</span>
           </div>
 

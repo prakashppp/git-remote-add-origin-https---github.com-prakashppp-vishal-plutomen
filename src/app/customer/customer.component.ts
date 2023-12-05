@@ -3,6 +3,7 @@ import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstra
 import { ApiService } from '../api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestoData } from '../restodata';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -11,9 +12,10 @@ import { RestoData } from '../restodata';
 })
 export class CustomerComponent {
 
-  constructor(private as:ApiService,private fb:FormBuilder){
+  constructor(private as:ApiService,private fb:FormBuilder,private arouter:ActivatedRoute){
     this.getAll();
     }
+
   
     mform!:FormGroup
   
@@ -25,13 +27,29 @@ export class CustomerComponent {
   
     ngOnInit(){
     this.mform=this.fb.group({
-      Name:['',Validators.required],
-      Email:[''],
+      Name:['',[Validators.required,Validators.pattern("[a-zA-Z ]*")]],
+      Email:['',Validators.pattern("^[a-z0-9]+@[a-z]+\.[a-z]{2,}$")],
       Address:[''],
-      Mobile:['',Validators.required],
+      Mobile:['',[Validators.required,Validators.pattern("^[7-9][0-9]{9}$")]],
       Gender:[''],
-      Role:['',Validators.required]
+      Role:['',[Validators.required,Validators.pattern("[a-zA-Z ]*")]]
     })
+
+    this.arouter.params.subscribe(params=>{
+      if(params['searchItem']){
+        this.as.getAll().subscribe((data)=>{
+            this.restoData=data.filter(data.name.toLowerCase().includes(params['searchItem'].toLowerCase()));
+        })
+      }
+      if(!params['searchItem']){
+        this.as.getAll().subscribe((data)=>{
+          this.restoData=data;
+          console.log('data fetched');
+        })
+      }
+    })
+
+        
     }
     clickAddCusto()
     {
