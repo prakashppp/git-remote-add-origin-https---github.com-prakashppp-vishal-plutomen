@@ -1,0 +1,22 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "Name": "sdf",
+      "Email": "sdf",
+      "Address": "sdf",
+      "Mobile": "sdf",
+      "Gender": "Male",
+      "Role": "angular developer"
+    },
+    {
+      "Name": "sdfsdf",
+      "Email": "sdf",
+      "Address": "sdf",
+      "Mobile": "65432",
+      "Gender": "Female",
+      "id": 2
+    }
+  ],
+  "signup": []
+}

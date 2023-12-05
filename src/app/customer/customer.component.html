@@ -1,0 +1,108 @@
+
+
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid" style="background-color: rgba(0, 0, 255, 0.53);">
+      <span class="navbar-brand mb-0 h1" style="color:white"><h1>Customer Details</h1></span>
+      <div>
+         <button class="btn btn-success" (click)="open(content)" (click)="clickAddCusto()">Add Customer</button>&nbsp;
+         <button class="btn btn-danger" routerLink="/login">Logout</button>&nbsp;&nbsp;
+      </div>
+    </div>
+  </nav>
+
+        <input style="margin-left: 85%; margin-right: 10%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+
+  <table class="table" style="text-align: center;">
+    <thead>
+      <tr>
+        <th scope="col">Customer Id</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Customer Email</th>
+        <th scope="col">Customer Address</th>
+        <th scope="col">Customer Mobile</th>
+        <th scope="col">Customer Gender</th>
+        <th scope="col">Customer Role</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+        
+    <tbody *ngFor="let data of restoData let i=index">
+      <tr>
+        <td>{{i+1}}</td>
+        <td>{{data.Name}}</td>
+        <td>{{data.Email}}</td>
+        <td>{{data.Address}}</td>
+        <td>{{data.Mobile}}</td>
+        <td>{{data.Gender}}</td>
+        <td>{{data.Role}}</td>
+        <td><button type="button" class="btn btn-info" (click)="edit(data)" (click)="open(content)">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="deleteCustomer(data.id)">Delete</button></td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Records</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="mform">
+        
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="Name">
+          <span [class.d-none]="mform.get('Name')?.valid || mform.get('Name')?.untouched">Enter Valid name</span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="Email">
+          <span [class.d-none]="mform.get('Email')?.valid || mform.get('Email')?.untouched">Enter Valid name</span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Address</label>
+          <input type="text" class="form-control" formControlName="Address">
+          <span [class.d-none]="mform.get('Address')?.valid || mform.get('Address')?.untouched">Enter Valid name</span>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Mobile</label>
+          <input type="text" class="form-control" formControlName="Mobile">
+          <span [class.d-none]="mform.get('Mobile')?.valid || mform.get('Mobile')?.untouched">Enter Valid name</span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Role</label>
+            <input type="text" class="form-control" formControlName="Role">
+            <span [class.d-none]="mform.get('Role')?.valid || mform.get('Role')?.untouched">Enter Valid name</span>
+          </div>
+
+        <div class="mb-3">
+          <label class="form-label">Gender</label>
+          <!-- <input type="text" class="form-control" formControlName="Gender"> -->
+          <select formControlName="Gender" class="form-control">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+      <button *ngIf="showAdd" type="button" class="btn btn-outline-dark" (click)="addCustomer(mform.value)" (click)="modal.close('Save click')" [disabled]=!mform.valid>Add Details</button>
+      <button *ngIf="showupdate" type="button" class="btn btn-outline-dark" (click)="updateCustomer()" (click)="modal.close('Save click')">Update</button>
+     
+    </div>
+  </ng-template>
+  
+ 
+
+ 
