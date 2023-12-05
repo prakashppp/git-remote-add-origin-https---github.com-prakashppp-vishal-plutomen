@@ -1,21 +1,22 @@
 {
   "posts": [
     {
-      "id": 1,
-      "Name": "sdf",
-      "Email": "sdf",
-      "Address": "sdf",
-      "Mobile": "sdf",
+      "Name": "Vishal",
+      "Email": "vishal@gmail.com",
+      "Address": "Gujrat",
+      "Mobile": "9878987898",
       "Gender": "Male",
-      "Role": "angular developer"
+      "Role": "Full Stack Developer",
+      "id": 2
     },
     {
-      "Name": "sdfsdf",
-      "Email": "sdf",
-      "Address": "sdf",
-      "Mobile": "65432",
-      "Gender": "Female",
-      "id": 2
+      "Name": "Prakash",
+      "Email": "prakash@gmail.com",
+      "Address": "Pune",
+      "Mobile": "7387608861",
+      "Gender": "Male",
+      "Role": "Angular Developer",
+      "id": 3
     }
   ],
   "signup": []

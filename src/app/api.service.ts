@@ -9,12 +9,7 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  valid= new Subject()
-
-  addToJson(data:any):Observable<any>{
-    return this.http.post<any>("http://localhost:3000/signup",data);
-  }
-
+  
   getAll():Observable<any>{
     return this.http.get<any>("http://localhost:3000/posts");
   }
@@ -31,7 +26,5 @@ export class ApiService {
     return this.http.delete("http://localhost:3000/posts/"+id);
   }
 
-  setValid(value:any){
-    this.valid.next(value)
-  }
+  
 }
