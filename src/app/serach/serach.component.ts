@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SerachComponent {
   searchItem:string="";
-  constructor(private route:ActivatedRoute, private router:Router){}
+   constructor(private route:ActivatedRoute, private router:Router){}
 
   ngOnInit():void{
    this.route.params.subscribe(params=>{
@@ -17,10 +17,11 @@ export class SerachComponent {
    })
 
   }
-
+  resett(){
+    this.searchItem='';
+  }
   search():void{
    if(this.searchItem)
    this.router.navigateByUrl('/search/'+this.searchItem)
-
   }
 }

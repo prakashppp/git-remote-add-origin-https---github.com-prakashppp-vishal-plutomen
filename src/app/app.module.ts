@@ -12,7 +12,8 @@ import { SerachComponent } from './serach/serach.component';
   declarations: [
     AppComponent,
     CustomerComponent,
-    SerachComponent
+    SerachComponent,
+   
   ],
   imports: [
     BrowserModule,

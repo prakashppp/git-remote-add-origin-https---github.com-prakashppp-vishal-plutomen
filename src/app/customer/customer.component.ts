@@ -20,6 +20,7 @@ export class CustomerComponent {
     mform!:FormGroup
   
     restoData:RestoData[]=[];
+    drestoData:RestoData[]=[];
      restoObject = new RestoData
   
     showAdd:boolean=false
@@ -37,16 +38,25 @@ export class CustomerComponent {
 
     this.arouter.params.subscribe(params=>{
       if(params['searchItem']){
-        this.as.getAll().subscribe((data)=>{
-            this.restoData=data.filter(data.name.toLowerCase().includes(params['searchItem'].toLowerCase()));
-        })
-      }
-      if(!params['searchItem']){
-        this.as.getAll().subscribe((data)=>{
-          this.restoData=data;
-          console.log('data fetched');
-        })
-      }
+        this.drestoData=this.restoData.filter(data =>data.Name.toLowerCase().includes(params['searchItem'].toLowerCase()));
+       }
+
+       if(params['searchItem']=='all'){
+        this.drestoData=this.restoData;
+       }
+
+      
+    })
+
+    this.arouter.params.subscribe(paramss=>{
+      if(paramss['searchRole']){
+        this.drestoData=this.restoData.filter(data =>data.Name.toLowerCase().includes(paramss['searchRole'].toLowerCase()));
+       }
+
+       if(paramss['searchRole']=='all'){
+        this.drestoData=this.restoData;
+       }
+      
     })
 
         

@@ -11,6 +11,7 @@
   </nav>
 
   <app-serach></app-serach>
+  
   <table class="table" style="text-align: center;">
     <thead>
       <tr>
@@ -25,7 +26,7 @@
       </tr>
     </thead>
         
-    <tbody *ngFor="let data of restoData let i=index">
+    <tbody *ngFor="let data of drestoData let i=index">
       <tr>
         <td>{{i+1}}</td>
         <td>{{data.Name}}</td>

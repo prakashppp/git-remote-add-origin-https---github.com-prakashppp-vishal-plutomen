@@ -6,7 +6,7 @@ import { SerachComponent } from './serach/serach.component';
 const routes: Routes = [
   {path:'custo',component:CustomerComponent},
   {path:'',component:CustomerComponent},
-  {path:'search/:searchItem',component:CustomerComponent}
+  {path:'search/:searchItem',component:CustomerComponent},
 ];
 
 @NgModule({

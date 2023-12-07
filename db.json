@@ -17,6 +17,24 @@
       "Gender": "Male",
       "Role": "Angular Developer",
       "id": 3
+    },
+    {
+      "Name": "Punam",
+      "Email": "punam@gmail.com",
+      "Address": "Pune, Akurdi",
+      "Mobile": "9359585184",
+      "Gender": "Female",
+      "Role": "Pharma",
+      "id": 4
+    },
+    {
+      "Name": "Govind",
+      "Email": "govind@gmail.com",
+      "Address": "Universe",
+      "Mobile": "9999999999",
+      "Gender": "Other",
+      "Role": "Run Universe",
+      "id": 5
     }
   ],
   "signup": []

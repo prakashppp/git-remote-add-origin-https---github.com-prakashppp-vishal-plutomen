@@ -1,5 +1,7 @@
 <div>
-    <input type="text" placeholder="Search Customer" [(ngModel)]="searchItem" (change)="search()">
-    <button routerLink="/search/{{searchItem}}">Search</button>
+       <input type="text" placeholder="Search Customer by name" [(ngModel)]="searchItem" (change)="search()">
+    <button routerLink="/search/{{searchItem}}" (click)="resett()">Search</button>
+    
+
     <!-- <button (click)="search()">Search</button> -->
 </div>

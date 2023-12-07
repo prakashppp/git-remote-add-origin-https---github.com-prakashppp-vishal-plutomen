@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, map } from 'rxjs';
 import { RestoData } from './restodata';
 
 @Injectable({
@@ -12,7 +12,9 @@ export class ApiService {
 
   
   getAll():Observable<any>{
-    return this.http.get<any>("http://localhost:3000/posts");
+    return this.http.get<any>("http://localhost:3000/posts").pipe(map(res=>{
+      return res;
+    }));
   }
 
   addCustomer(data:any){
@@ -27,5 +29,17 @@ export class ApiService {
     return this.http.delete("http://localhost:3000/posts/"+id);
   }
 
-  
+ 
+  getAlll(){
+    return [
+      
+      { "id":1,
+        "Name":"vishal",
+        "Email":"dd@gmail.com",
+        "Address":"nagar",
+        "Mobile":98778,
+        "Gender":"male",
+        "Role":"angular"}
+    ]
+  }
 }
